@@ -53,6 +53,27 @@ public class SubsetMethodsTest {
     public void descendingSet() {
         NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
 
-        assertEquals(Set.of(4, 2, 1), ints);
+        assertEquals(Set.of(4, 2, 1), ints.descendingSet());
+    }
+    
+    @Test
+    public void descendingSet_modify() {
+        NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
+        var reversed = ints.descendingSet();
+        reversed.add(3);
+        
+        assertEquals(Set.of(4, 3, 2, 1), ints);
+        assertEquals(Set.of(4, 3, 2, 1), reversed);
+    }
+
+    @Test
+    public void descendingSet_source_modify() {
+        NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
+        
+        var reversed = ints.descendingSet();
+        ints.add(3);
+
+        assertEquals(Set.of(4, 3, 2, 1), ints);
+        assertEquals(Set.of(4, 3, 2, 1), reversed);
     }
 }
