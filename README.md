@@ -23,9 +23,10 @@ or null if there is no such element
 * `NavigableSet<E> tailSet(E fromElement, boolean inclusive)`
 
 # project description
-We will provide tests for above mentioned methods, ignoring:
+We will provide tests for above mentioned methods
 * subset / headset / tailset -> similar methods are covered in
 `SortedSet` project.
+* ceiling / higher is like floor / lower in reversed order
 * lower
     ```
     NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
