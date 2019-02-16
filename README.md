@@ -4,7 +4,7 @@
 * `interface NavigableSet<E> extends SortedSet<E>`
 * referring https://github.com/mtumilowicz/java11-collections-sortedset-subset-methods
 could be useful
-* `ClassCastException` similar to `SortedSet`
+* `ClassCastException` policy similar to `SortedSet`
 * `class TreeSet<E> implements NavigableSet<E>`
 
 # methods
@@ -61,4 +61,23 @@ We will provide tests for above mentioned methods, ignoring:
     NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
     
     assertEquals(Set.of(4, 2, 1), ints);
+    ```
+* modifying descendingSet modify source
+    ```
+    NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
+    var reversed = ints.descendingSet();
+    reversed.add(3);
+    
+    assertEquals(Set.of(4, 3, 2, 1), ints);
+    assertEquals(Set.of(4, 3, 2, 1), reversed);
+    ```
+* modifying source modify descendingSet
+    ```
+    NavigableSet<Integer> ints = new TreeSet<>(Arrays.asList(1, 2, 4));
+    
+    var reversed = ints.descendingSet();
+    ints.add(3);
+    
+    assertEquals(Set.of(4, 3, 2, 1), ints);
+    assertEquals(Set.of(4, 3, 2, 1), reversed);
     ```
