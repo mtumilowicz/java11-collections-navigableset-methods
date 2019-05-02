@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/mtumilowicz/java11-collections-navigableset-subset-methods.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-collections-navigableset-subset-methods)
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-collections-navigableset-methods.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-collections-navigableset-methods)
 
 # java11-collections-navigableset-methods
 
